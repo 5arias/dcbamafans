@@ -47,6 +47,16 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
+		
+		<?php 
+		$terms = get_terms( array (
+			'taxonomy' => 'event_type',
+			'hide_empty' => false
+			)
+			); 
+			
+		print_r($terms);
+		?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

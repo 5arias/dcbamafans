@@ -222,6 +222,20 @@ include_once( get_stylesheet_directory() . '/inc/vendors/acf/acf.php' );
 
 
 
+/*=====================================================================================
+  Advanced Custom Fields - Add-on Fields
+  @since dcbamafans 1.0.0
+======================================================================================*/
+
+/*
+ * Date & Time Picker
+ *
+ * @link https://github.com/soderlind/acf-field-date-time-picker
+ */ 
+include_once( get_stylesheet_directory() . '/inc/vendors/acf-field-date-time-picker/acf-date_time_picker.php' );
+
+
+
 
 
 /*=====================================================================================
@@ -232,7 +246,8 @@ include_once( get_stylesheet_directory() . '/inc/vendors/acf/acf.php' );
  * Singleton style self instantiated classes 
  */
  
-//Abstract
+//CPT.php
+require('classes/cpt.php');
 
 //User Profile Mods
 //require('classes/profilemods.php');
@@ -243,12 +258,12 @@ include_once( get_stylesheet_directory() . '/inc/vendors/acf/acf.php' );
  *
  * NOTE: the singleton classes need to stay above this function 
  * otherwise it will try to include classes like WP_List_Table too
- */
+ *
 spl_autoload_register(function ($class_name) {
 	$class_name = strtolower($class_name);
     include 'classes/' . $class_name . '.php';
 });
-
+*/
 
 
 
@@ -271,6 +286,9 @@ require get_template_directory() . '/inc/mods/customizer.php';
 
 // Load Jetpack compatibility file.
 require get_template_directory() . '/inc/mods/jetpack.php';
+
+// Custom Event and Venue management
+require get_template_directory() . '/inc/mods/events.php';
 
  
  
